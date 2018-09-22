@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<title>03-jQuery和JavaScript入口函数的区别</title>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script>
+//		window.onload = function (ev) {
+//			// 通过原生JavaScript入口函数可以拿到DOM元素
+//			var img = document.getElementsByTagName("img")[0];
+//			console.log(img);
+//			
+//			// 通过原生JavaScript的入口函数可以拿到DOM元素的宽高
+//			var width = window.getComputedStyle(img).width;
+//			console.log("JavaScript", width);
+//		}
+		
+//		$(document).ready(function() {
+//			// 通过jQuery入口函数可以拿到DOM元素
+//			var $img = $("img");
+//			console.log($img);
+//			
+//			// 通过jQuery入口函数不可以拿到DOM元素的宽高
+//			var $width = $img.width();
+//			console.log("jQuery", $width);
+//		});
+		
+		/*
+		结论1：原生JavaScript和jQuery入口函数的加载模式不同。
+		原生JavaScript会等到DOM元素加载完毕，并且图片也加载完毕才会执行
+		jQuery会等到DOM元素加载完毕，但不会等到图片也加载完毕就会执行
+		*/
+		
+		// 原生的JavaScript如果编写了多个入口函数，后面编写的会覆盖前面编写的
+//		window.onload = function(ev) {
+//			alert("hello, 1");
+//		}
+//		window.onload = function(ev) {
+//			alert("hello, 2");
+//		}
+		
+		// jQuery中编写多个入口函数，后面的不会覆盖前面的
+//		$(document).ready(function () {
+//			alert("hello, 1");
+//		});
+//		$(document).ready(function () {
+//			alert("hello, 2");
+//		});
+		
+		/*
+		结论2：原生的JavaScript如果编写了多个入口函数，后面编写的会覆盖前面编写的；
+		jQuery中编写多个入口函数，后面的不会覆盖前面的。
+		*/
+	</script>
+</head>
+<body>
+	<img src="https://img.alicdn.com/tfs/TB1reRSv8jTBKNjSZFwXXcG4XXa-190-140.gif" />
+</body>
+</html>
