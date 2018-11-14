@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="04-jQuery入口函数的其他写法" />
+	<meta name="author" content="StrongXGP (xgp1227#gmail.com)" />
+	
+	<title>04-jQuery入口函数的其他写法</title>
+	
+	<!-- 引入jQuery -->
+	<script src="js/jquery-1.12.4.min.js"></script>
+	
+	<script type="text/javascript">
+		// 第一种写法
+		$(document).ready(function () {
+			alert("Hello, 1");
+		});
+		
+		// 第二种写法
+		jQuery(document).ready(function () {
+			alert("Hello, 2");
+		});
+		
+		// 第三种写法（推荐）
+		$(function () {
+			alert("Hello, 3");
+		});
+		
+		// 第四种写法
+		jQuery(function () {
+			alert("Hello, 4");
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

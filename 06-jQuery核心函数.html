@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="06-jQuery核心函数" />
+	<meta name="author" content="StrongXGP (xgp1227#gmail.com)" />
+	
+	<title>06-jQuery核心函数</title>
+	
+	<!-- 引入jQuery -->
+	<script src="js/jquery-1.12.4.min.js"></script>
+	
+	<script>
+		// $()：表示调用jQuery的核心函数
+		
+		// $()能够接受三种类型的参数：
+		// 1. 接收一个函数
+		$(function () {
+			alert("Hello, 1");
+		});
+		// 2. 接收一个字符串
+		$(function () {
+			// 2.1 接收一个字符串选择器
+			// 返回一个jQuery对象，对象中保存了找到的DOM元素
+			var $box1 = $(".box1");
+			var $box2 = $("#box2");
+			console.log($box1);
+			console.log($box2);
+			
+			// 2.2 接收一个字符串代码片段
+			// 会根据代码片段生成相应的DOM元素
+			// 返回一个jQuery对象，对象中保存了创建的DOM元素
+			var $p = $("<p>我是一个段落</p>");
+			console.log($p);
+			$box1.append($p);
+		});
+		// 3. 接收一个DOM元素（返回一个jQuery对象）
+		$(function () {
+			var span = document.getElementsByTagName("span")[0];
+			console.log(span);
+			var $span = $(span);
+			console.log($span);
+		});
+	</script>
+</head>
+<body>
+<div class="box1"></div>
+<div id="box2"></div>
+<span></span>
+</body>
+</html>

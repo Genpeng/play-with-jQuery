@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="05-jQuery冲突问题" />
+	<meta name="author" content="StrongXGP (xgp1227#gmail.com)" />
+	
+	<title>05-jQuery冲突问题</title>
+	
+	<!-- 引入jQuery -->
+	<script src="js/jquery-1.12.4.min.js"></script>
+	
+	<!-- 引入自己的框架 ( ^ _ ^ ) V -->
+	<script src="js/myFramework.js"></script>
+	
+	<script>
+		// 1. 释放$的使用权
+		// 注意点：
+		// a. 释放操作必须在编写其他jQuery代码之前
+		// b. 释放之后就不能使用$，改为使用jQuery
+		jQuery.noConflict();
+		jQuery(function () {
+			alert("Hello, 1");
+		});
+		
+		// 2. 自定义一个访问符号
+		var jq = jQuery.noConflict();
+		jq(function () {
+			alert("Hello, 2");
+		});
+	</script>
+</head>
+<body>
+
+</body>
+</html>

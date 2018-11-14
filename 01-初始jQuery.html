@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="01-初始jQuery" />
+	<meta name="author" content="StrongXGP (xgp1227#gmail.com)" />
+	
+	<title>01-初始jQuery</title>
+	
+	<!-- 引入jQuery -->
+	<script src="js/jquery-1.12.4.min.js"></script>
+	
+	<style>
+		# {
+			margin: 0;
+			padding: 0;
+		}
+		
+		div {
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+	<script>
+		window.onload = function (ev) {
+			// 利用原生JavaScript查找DOM元素
+			var div1 = document.getElementsByTagName("div")[0];
+			var div2 = document.getElementsByClassName("box1")[0];
+			var div3 = document.getElementById("box2");
+			console.log(div1);
+			console.log(div2);
+			console.log(div3);
+			
+			// 利用原生JavaScript修改背景颜色
+			div1.style.backgroundColor = "red";
+			div2.style.backgroundColor = "green";
+			div3.style.backgroundColor = "blue";
+		}
+		
+		$(function () {
+			// 利用jQuery查找DOM元素
+			var $div1 = $("div");
+			var $div2 = $(".box1");
+			var $div3 = $("#box2");
+			console.log($div1);
+			console.log($div2);
+			console.log($div3);
+			
+			// 利用jQuery修改背景颜色
+			$div1.css({
+				backgroundColor: "red", 
+			});
+			$div2.css({
+				backgroundColor: "green", 
+				width: "200px", 
+				height: "200px", 
+			});
+			$div3.css({
+				backgroundColor: "blue", 
+				width: "300px", 
+				height: "300px", 
+			});
+		});
+	</script>
+</head>
+<body>
+<div></div>
+<div class="box1"></div>
+<div id="box2"></div>
+</body>
+</html>
